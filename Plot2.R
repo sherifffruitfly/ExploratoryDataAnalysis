@@ -3,6 +3,8 @@
 source("DataLoader.R")
 plotdata <- loadData()
 
+dev.off()
+
 plot(plotdata$datetime
     , plotdata$Global_active_power
     , xlab = ""

@@ -1,7 +1,9 @@
-# Line graphs of sub meterings over 2/1/2007-2/2/2007
+# Multiple independent graphs over 2/1/2007-2/2/2007
 
 source("DataLoader.R")
 plotdata <- loadData()
+
+dev.off()
 
 par(mfrow=c(2,2))
 

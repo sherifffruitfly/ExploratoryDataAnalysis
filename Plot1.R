@@ -3,6 +3,8 @@
 source("DataLoader.R")
 plotdata <- loadData()
 
+dev.off()
+
 hist(plotdata$Global_active_power, col = "red", xlab = "Global Active Power (kilowatts)"
      , ylab = "Frequency"
      , main = "Global Active Power"
