@@ -3,14 +3,12 @@
 source("DataLoader.R")
 plotdata <- loadData()
 
-dev.off()
+png("Plot2.png")
 
-plot(plotdata$datetime
-    , plotdata$Global_active_power
+plot(plotdata$datetime, plotdata$Global_active_power
     , xlab = ""
     , ylab = "Global Active Power (kilowatts)"
     , type="l"
 )
 
-
-
+dev.off()
