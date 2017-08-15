@@ -1,8 +1,8 @@
 # load data for use in other scripts' plots
 
-loadData <- function(filename="C:\\cdjProgramming\\coursera\\Exploratory Data Analysis\\household_power_consumption.txt"
-                     , startdate=as.Date("2/1/2007", format = "%d/%m/%Y")
-                     , enddate=as.Date("2/2/2007", format = "%d/%m/%Y")
+loadData <- function(filename="C:\\cdjProgramming\\coursea\\Exploratory Data Analysis\\Week1\\household_power_consumption.txt"
+                     , startdate=as.Date("2007-02-01")
+                     , enddate=as.Date("2007-02-02")
                      , clearenv=FALSE
                      )
 {
@@ -11,10 +11,10 @@ loadData <- function(filename="C:\\cdjProgramming\\coursera\\Exploratory Data An
     message("Environment cleared")
   }
   
-  data <- read.table(filename, header=TRUE, sep=";", na.strings = "?")
-  
-  gooddates <- c(startdate, enddate)
-  data.filtered <- data[as.Date(data$Date, format = "%d/%m/%Y") %in% gooddates,]
+  data <- read.table("C:\\cdjProgramming\\coursea\\Exploratory Data Analysis\\Week1\\household_power_consumption.txt", sep = ";", header = TRUE, na.strings = "?")
+  data$Date <- as.Date(data$Date, "%d/%m/%Y")
+  data$datetime <- strptime(paste(data$Date, data$Time), "%Y-%m-%d %H:%M:%S")
+  data.filtered <- subset(data, Date >= startdate & Date <= enddate)
   
   return(data.filtered)
 }
